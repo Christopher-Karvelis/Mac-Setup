@@ -6,8 +6,8 @@ git_branch() {
 }
 
 if [[ $(arch) == 'arm64' ]];
-then 
-  PROMPT="%F{green}%d%f@%F{blue}M1%f $(git_branch)$ "
+then
+  PROMPT=" %F{208}[%D{%Y-%m-%d} %T]%f %F{green}%d%f@%F{blue}M1%f $(git_branch)"
   export LDFLAGS="-L/opt/homebrew/Cellar/unixodbc/2.3.11/lib"
   export CPPFLAGS="-I/opt/homebrew/Cellar/unixodbc/2.3.11/include"
 fi
@@ -74,7 +74,7 @@ HIST_STAMPS="yyyy-mm-dd"
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 
 # Kubernetes command line autocompletion
-source <(kubectl completion zsh)
+#source <(kubectl completion zsh)
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -82,3 +82,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fpath+=/opt/homebrew/share/zsh/site-functions
+autoload -Uz compinit && compinit
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
+export JAVA_HOME="/opt/homebrew/opt/openjdk@21"
