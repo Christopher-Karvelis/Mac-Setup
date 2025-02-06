@@ -1,5 +1,37 @@
 # Mac-Setup
 
+## Steps to back up current Mac
+
+1. Create a folder .dotfiles in the home directory
+
+2. Sym link the files you want to back up to the .dotfiles folder
+
+```zsh
+# There are better and less manual ways to do this;
+# investigate install scripts and bootstrapping tools.
+
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+```
+3. Create a Brewfile in the .dotfiles folder to back up the software you have installed
+
+```zsh
+brew bundle dump --describe
+```
+if you already have a Brewfile you could overwrite running the following command
+
+```zsh
+brew bundle dump --force --describe
+```
+
+# Backup Pycharm settings
+
+
+2. Configured datasources
+
+Select the datasources from the database window and ritght click on the datasource and select copy datasource.
+Then paste the contents in the DatasourcesSettings.xml file.
+
 ## Steps to bootstrap a new Mac
 
 1. Install Apple's Command Line Tools, which are prerequisites for Git and Homebrew.
