@@ -23,6 +23,15 @@ if you already have a Brewfile you could overwrite running the following command
 ```zsh
 brew bundle dump --force --describe
 ```
+
+# Backup Pycharm settings
+
+
+2. Configured datasources
+
+Select the datasources from the database window and ritght click on the datasource and select copy datasource.
+Then paste the contents in the DatasourcesSettings.xml file.
+
 ## Steps to bootstrap a new Mac
 
 1. Install Apple's Command Line Tools, which are prerequisites for Git and Homebrew.
